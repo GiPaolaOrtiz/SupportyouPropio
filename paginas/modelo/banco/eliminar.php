@@ -48,14 +48,14 @@
             <?php
                 $id=$_GET['id'];
             
-                include_once $_SERVER['DOCUMENT_ROOT'] . "/supportyou/paginas/modelo/banco/bancoCollector.php";
+                include_once("../../modelo/banco/bancoCollector.php");
                 $bancoCollectorObj = new bancoCollector();
                 foreach ($bancoCollectorObj->showBancos() as $c){
                      $nombre=$c->getNombre();
                  }
                 $bancoCollectorObj-> deleteBanco($id);
 
-                echo "<h3 class='topspace text-center'>El banco <span class='red'>" . $nombre . "</span> ha sido eliminado</h3>";
+                echo "<h3 class='topspace text-center'>El banco ha sido eliminado</h3>";
             ?>
             <div>
                 <a href="view.php" class="btn btn-info center-block w70">Volver</a>

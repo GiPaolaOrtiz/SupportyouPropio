@@ -16,7 +16,6 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-   
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -52,9 +51,7 @@ session_start();
             ?>
             <?php
                 $id=$_GET['id'];
-            
-                            include_once('../../modelo/venta/ventaCollector.php');
-
+                include_once('../../modelo/venta/ventaCollector.php');
                 $ventaCollectorObj = new ventaCollector();
                 $ventaCollectorObj-> deleteventa($id);
 
@@ -70,7 +67,6 @@ session_start();
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer> 
-   
+    </footer>  
     </body>
 </html>

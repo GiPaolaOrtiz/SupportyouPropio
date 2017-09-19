@@ -56,15 +56,15 @@
 				$estadoventa=$_POST['estadoventa'];
 
         
-                 include_once('../../modelo/producto/ProductoCollector.php');
-
+            
+                include_once("../../modelo/producto/ProductoCollector.php");
                 $ProductoCollectorObj = new ProductoCollector();
                 $ProductoCollectorObj-> updateProductos($idproducto, $descripcion, $estado, $precio, $img, $estadoventa, $idfundacion, $idcategoriaproducto);
 
-                echo "<h3 class='topspace text-center'>El producto <span class='green'>" . $idproducto . "</span> ha sido actualizado a <span class='green'>" . $descripcion . "</span></h3>";
+                echo "<h3 class='topspace text-center'>El producto <span class='green'>" . $idproducto . "</span> ha sido actualizado</h3>";
             ?>
             <div>
-                <a href="view.php" class="btn btn-info center-block w70">Volver...</a>
+                <a href="view.php" class="btn btn-info center-block w70">Volver..</a>
             </div>
         </main>
          <script src="../../js/jquery.js"></script>

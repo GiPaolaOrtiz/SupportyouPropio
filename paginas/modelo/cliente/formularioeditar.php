@@ -49,18 +49,18 @@ session_start();
                 </div>
             </div>
         </nav>
-        
-    </main>
 
 
         <?php 
                 $id= $_GET['id'];
                 
-                include_once ("clienteCollector.php");
+                include_once("../../modelo/cliente/clienteCollector.php");
                 $ClienteCollectorObj = new clienteCollector();
                 $ObjCliente=$ClienteCollectorObj->showCliente($id);
 
-                include_once ("../usuario/usuarioCollector.php");
+
+
+                include_once("../../modelo/usuario/usuarioCollector.php");
                 $UsuarioCollectorObj = new usuarioCollector();
                 $ObjUsuario=$UsuarioCollectorObj->showUsuario($ObjCliente->getIdusuario());
         ?>
@@ -145,7 +145,10 @@ session_start();
 
             </div>
 
-    </div>
+
+
+    </main>
+
     <script src="../../../js/jquery.js"></script>
     <script type="text/javascript" src=""></script>
     <!-- Bootstrap Core JavaScript -->

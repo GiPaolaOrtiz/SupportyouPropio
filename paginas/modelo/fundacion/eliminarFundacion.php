@@ -17,6 +17,7 @@
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
+        
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -40,25 +41,22 @@
         
          <?php 
                 echo '<h2 class="topspace text-center"> Fundaciones </h2>';
-            ?>
-<?php
+         
 
 $id=$_GET["id"];
         
         
 
-include_once("../../modelo/fundacion/fundacionCollector.php");
+include_once("fundacionCollector.php");
 
 $FundacionCollectorObj = new fundacionCollector();
 
- foreach ($FundacionCollectorObj->showFundaciones() as $c){
-                     $nombre=$c->getNombre();
-               
-               }
+        $ObjFundacion = $FundacionCollectorObj->showFundacion($id);
+ 
                  $FundacionCollectorObj->deleteFundacion($id);
 
             
-                echo "<h3 class='topspace text-center'>La <span class='red'>" . $nombre . "</span> ha sido eliminada</h3>";
+                echo "<h3 class='topspace text-center'>La <span class='red'>" . $ObjFundacion->getNombre() . "</span> ha sido eliminada</h3>";
 ?>
 
 <div>

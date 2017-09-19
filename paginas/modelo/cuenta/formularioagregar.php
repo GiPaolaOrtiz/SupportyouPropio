@@ -16,10 +16,6 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-    <?php
-if (isset($_SESSION['Misesion'])){
-$usuario = $_SESSION['Misesion'];
-?>
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -64,8 +60,20 @@ $usuario = $_SESSION['Misesion'];
                               <input type="text" class="form-control" id="numero" placeholder="Escriba el numero de la cuenta" name="numero">
                             </div>
                             <div class="form-group">
-                              <label for="banco">ID banco</label>
-                              <input type="text" class="form-control" id="banco" placeholder="Escriba el ID del banco" name="banco">
+                                <label for="banco">Banco</label>
+                                <select id="selectbasic" name="banco" method="post" class="form-control" required>
+                                    <?php
+                                        include_once("../../modelo/banco/bancoCollector.php");
+                                        $id =1;
+                                        $bancoCollectorObj = new bancoCollector();
+                                        
+                                        foreach ($bancoCollectorObj->showbancos() as $c){
+                                            $id =$c->getIdbanco();
+                                            echo "<option value= ".$c->getIdbanco(). ">". $c->getNombre(). "</option>";
+                                            
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-info">Enviar</button>
                         </form>
@@ -82,10 +90,5 @@ $usuario = $_SESSION['Misesion'];
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
     </footer>  
-    <?php
-}else{
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-}
-?>
     </body>
 </html>

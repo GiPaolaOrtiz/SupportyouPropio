@@ -13,11 +13,6 @@
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-    <?php
-}else{
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-}
-?>
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -52,7 +47,8 @@ echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
             <?php
                 $id=$_POST['id'];
 		        $metodo=$_POST['metodo'];
-                include_once('../../modelo/MetodoPago/MetodoPagoCollector.php');
+            
+                include_once("../../modelo/MetodoPago/MetodoPagoCollector.php");
                 $MetodoPagoCollectorObj = new metodopagoCollector();
                 $MetodoPagoCollectorObj-> updateMetodoPago($id,$metodo);
 
@@ -68,11 +64,6 @@ echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer>
- <?php
-}else{
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-}
-?>
+    </footer>  
     </body>
 </html>

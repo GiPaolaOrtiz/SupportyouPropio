@@ -13,10 +13,6 @@
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-    <?php
-if (isset($_SESSION['Misesion'])){
-$usuario = $_SESSION['Misesion'];
-?>
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -52,7 +48,8 @@ $usuario = $_SESSION['Misesion'];
                 $id=$_POST['id'];
 		        $numero=$_POST['numero'];
 		        $banco=$_POST['banco'];            
-                include_once('../../modelo/cuenta/cuentaCollector.php');
+            
+                include_once("../../modelo/cuenta/cuentaCollector.php");
                 $cuentaCollectorObj = new cuentaCollector();
                 $cuentaCollectorObj-> updatecuenta($id,$numero,$banco);
 
@@ -68,11 +65,6 @@ $usuario = $_SESSION['Misesion'];
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer>
-    <?php
-}else{
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-}
-?>  
+    </footer>  
     </body>
 </html>

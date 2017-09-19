@@ -14,7 +14,6 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-   
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -45,9 +44,8 @@ session_start();
                     </div>
                 </div>
             </nav>    
-        <?php 
-                include_once('../../modelo/venta/ventaCollector.php');
-
+        <?php
+            include_once('../../modelo/venta/ventaCollector.php');
             $ventaCollectorObj = new ventaCollector();
                 echo '<h2 class="topspace text-center">Ventas</h2>';
                 echo "<a href='formularioagregar.php' class='btn btn-warning center-block w10'><b>+</b></a>";
@@ -61,7 +59,7 @@ session_start();
                         echo '<th>ID Producto</th>';
                         echo '<th>Acciones</th>';
                     echo '</tr> </thead><tbody>';            
-                      foreach ($ventaCollectorObj->showVentas() as $c){
+                      foreach ($ventaCollectorObj->showVentasInner() as $c){
                           echo '<tr>'; 
                               echo '<td>' . $c->getIdventa() . '</td>';
                               echo '<td>' . $c->getTotal() . '</td>';
@@ -81,6 +79,7 @@ session_start();
     <script src="../../js/bootstrap.min.js"></script>
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
-    </footer>
+
+    </footer>  
     </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +42,7 @@ session_start();
                 
                    <?php
                         echo"<a href='../index.php'><img alt='LogoAplicacion' id='estilo_logo' src='../img/LogoSupportYou.png'></a>"
-                  ?>
+                    ?>
                 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -102,7 +103,7 @@ session_start();
                             <input type="checkbox" value="remember-me"> Recuérdame
                         </label>
                     </div>
-                    <input type="submit" id="boton2" class="btn btn-lg btn-primary btn-block" type="submit" value="IniciarSesion">
+                    <input id="boton2" class="btn btn-lg btn-primary btn-block" type="submit" value="IniciarSesion">
                     <h5>¿No tienes una cuenta?<button class="btn btn-lg btn-primary btn-block" type="submit" onClick="location.href='../index.php'">Regístrate</button> </h5>
                 </form>
 

@@ -14,10 +14,6 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-    <?php
-if (isset($_SESSION['Misesion'])){
-$usuario = $_SESSION['Misesion'];
-?>
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -48,8 +44,8 @@ $usuario = $_SESSION['Misesion'];
                     </div>
                 </div>
             </nav>    
-        <?php
-            include_once('../../modelo/cuenta/cuentaCollector.php');
+        <?php 
+            include_once("../../modelo/cuenta/cuentaCollector.php");
             $cuentaCollectorObj = new cuentaCollector();
                 echo '<h2 class="topspace text-center">Cuentas</h2>';
                 echo "<a href='formularioagregar.php' class='btn btn-warning center-block w10'><b>+</b></a>";
@@ -58,10 +54,10 @@ $usuario = $_SESSION['Misesion'];
                     echo ' <thead><tr>';   
                         echo '<th>ID</th>';
                         echo '<th>Numero de la cuenta</th>';
-                        echo '<th>ID Banco</th>';
+                        echo '<th>Nombre del banco</th>';
                         echo '<th>Acciones</th>';
                     echo '</tr> </thead><tbody>';            
-                      foreach ($cuentaCollectorObj->showcuentas() as $c){
+                      foreach ($cuentaCollectorObj->showcuentasInner() as $c){
                           echo '<tr>'; 
                               echo '<td>' . $c->getIdcuenta() . '</td>';
                               echo '<td>' . $c->getNrocuenta() . '</td>';
@@ -80,11 +76,6 @@ $usuario = $_SESSION['Misesion'];
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer>
-    <?php
-}else{
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-}
-?>  
+    </footer>  
     </body>
 </html>

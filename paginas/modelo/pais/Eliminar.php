@@ -27,7 +27,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 <body>
-  
 <!-- Menu -->
     <nav class="navbar navbar-default navbar-fixed-top topnav">
         <div class="container topnav">
@@ -39,7 +38,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="../fundacion/PerfilFundacion.php"><img alt="LogoAplicacion" id="estilo_logo" src="../../../img/LogoSupportYou.png"></a>
+                <a href="../../administrador.php"><img alt="LogoAplicacion" id="estilo_logo" src="../../../img/LogoSupportYou.png"></a>
             </div>
         </div>
     </nav>
@@ -47,6 +46,7 @@
     <br>
     <br>
 
+    
 <div id="main">
     
     <?php 
@@ -61,20 +61,15 @@ include_once("paisCollector.php");
 
 $PaisCollectorObj = new paisCollector();
 
-foreach ($PaisCollectorObj->showPaises() as $c){
-                     $nombre=$c->getNombre();
-               
-               }
-                 $PaisCollectorObj->deletePais($id);
+     $ObjPais = $PaisCollectorObj->showPais($id);
 
-            
-                echo "<h3 class='topspace text-center'>El país <span class='red'> " . $nombre . " </span> ha sido eliminado</h3>";
+            $PaisCollectorObj->deletePais($id);
+                echo "<h3 class='topspace text-center'>El país <span class='red'> " . $ObjPais->getNombre() . " </span> ha sido eliminado</h3>";
 ?>
 
 <div>
                 <a href="view.php" class="btn btn-info center-block w70"> Volver </a>
             </div>  
 </div>
-    
 </body>
 </html>

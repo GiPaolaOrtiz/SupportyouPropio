@@ -16,10 +16,6 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-    <?php
-if (isset($_SESSION['Misesion'])){
-$usuario = $_SESSION['Misesion'];
-?>
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -72,7 +68,23 @@ $usuario = $_SESSION['Misesion'];
                             </div>
                             <div class="form-group">
                               <label for="metodo">ID del banco</label>
-                              <input type="text" class="form-control" id="banco" value="<?php echo $Obj->getIdBancofk(); ?>" name="banco">
+                              <select id="selectbasic" name="banco" method="post" class="form-control" required>
+                                    <?php
+                                        include_once("../../modelo/banco/bancoCollector.php");
+                                        $id =1;
+                                        $bancoCollectorObj = new bancoCollector();
+                                        foreach ($bancoCollectorObj->showbancos() as $c){
+                                            if($Obj->getIdBancofk()==$c->getIdbanco()){
+                                                echo "<option value= ".$c->getIdbanco(). ">". $c->getNombre(). "</option>";
+                                            }                                         
+                                        }
+                                        foreach ($bancoCollectorObj->showbancos() as $c){
+                                            if($Obj->getIdBancofk()!=$c->getIdbanco()){
+                                                echo "<option value= ".$c->getIdbanco(). ">". $c->getNombre(). "</option>";
+                                            }                                         
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-info">Enviar</button>
                         </form>
@@ -88,11 +100,6 @@ $usuario = $_SESSION['Misesion'];
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer> 
-    <?php
-}else{
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-}
-?> 
+    </footer>  
     </body>
 </html>

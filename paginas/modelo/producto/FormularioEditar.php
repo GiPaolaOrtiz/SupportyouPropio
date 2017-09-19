@@ -32,10 +32,10 @@
                         <br>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
-                               <a class="page-scroll" href="../index.php">HOME</a>
+                               <a class="page-scroll" href="../../administrador.php">HOME</a>
                             </li>
                             <li>
-                               <a class="page-scroll" href="../../../index.html">SALIR</a>
+                               <a class="page-scroll" href="../../logout.php">SALIR</a>
                             </li>
                         </ul>
                     </div>
@@ -44,9 +44,7 @@
         <?php 
                 $id= $_GET['id'];
                 echo '<h2 class="topspace text-center">Productos</h2>';
-
-                include_once('ProductoCollector.php');
-
+                include_once("../../modelo/producto/ProductoCollector.php");
                 $ProductoCollectorObj = new ProductoCollector();
                 $ObjProducto=$ProductoCollectorObj->showProducto($id);
         ?>
@@ -81,7 +79,7 @@
                             </div>
                             <div class="form-group">
                               <label for="idu">Imagen </label>
-                              <input type="text" class="form-control" id="idu" value="<?php echo $ObjProducto->getImg(); ?>" name="img">
+                              <input type="file" class="form-control" id="idu" value="<?php echo $ObjProducto->getImg(); ?>" name="img">
                             </div>
                               <div class="form-group">
                               <label for="idu">Estado de Venta </label>

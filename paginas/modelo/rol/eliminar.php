@@ -43,19 +43,17 @@
         </nav>
 
         <?php 
-                echo '<h2 class="topspace text-center">Roles</h2>';
+                echo '<h2 class="topspace text-center">Metodos de pago</h2>';
             ?>
             <?php
                 $id=$_GET['id'];
             
-                include_once ("rolCollector.php");
+                include_once("../../modelo/rol/rolCollector.php");
                 $rolCollectorObj = new rolCollector();
-                foreach ($rolCollectorObj->showRoles() as $c){
-                     $nombre=$c->getNombre();
-                 }
+               
                 $rolCollectorObj-> deleteRol($id);
 
-                echo "<h3 class='topspace text-center'>El rol</h3>";
+                echo "<h3 class='topspace text-center'>El rol ha sido eliminado</h3>";
             ?>
             <div>
                 <a href="view.php" class="btn btn-info center-block w70">Volver</a>

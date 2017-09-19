@@ -54,7 +54,8 @@ session_start();
 		      
                 $nombre=$_POST['nombre'];
 		     
-                include_once('../../modelo/categoriaProducto/categoriaproductoCollector.php');
+            
+                include_once("../../modelo/categoriaProducto/categoriaproductoCollector.php");
                 $CategoriaProductoCollectorObj = new categoriaproductoCollector();
                 $CategoriaProductoCollectorObj-> updateCategoriaProducto($id,$nombre);
 

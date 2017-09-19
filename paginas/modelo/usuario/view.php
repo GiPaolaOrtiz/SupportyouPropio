@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -16,11 +12,6 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-        <?php
-if (isset($_SESSION['Misesion'])){
-$usuario = $_SESSION['Misesion'];
-?>
-        
         <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
@@ -50,7 +41,7 @@ $usuario = $_SESSION['Misesion'];
                 </div>
             </nav>    
         <?php 
-            include_once ("usuarioCollector.php");
+            include_once("../../modelo/usuario/usuarioCollector.php");
             $UsuarioCollectorObj = new usuarioCollector();
                 echo '<h2 class="topspace text-center">Usuarios</h2>';
               
@@ -90,12 +81,6 @@ $usuario = $_SESSION['Misesion'];
         <footer id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer> 
-        
-        <?php
-}else{ 
-echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../../../index.php'>";
-} 
-?>
+    </footer>  
     </body>
 </html>

@@ -17,8 +17,7 @@
 </head>
 
 <body>
-
-
+   
     <!-- Menu -->
     <nav class="navbar navbar-default navbar-fixed-top topnav">
         <div class="container topnav">
@@ -67,7 +66,7 @@
 
                                 <hr id="linea">
 
-                                <form action="guardarFundacion.php" id="contact-form" method="post">
+                                <form action="guardarFundacion.php" id="contact-form" method="post" enctype="multipart/form-data">
 
                                     <div class="messages"></div>
 
@@ -236,7 +235,7 @@
                                                 
                                                 
                                                 <label for="exampleInputFile">Subir Foto </label>
-                                                    <input type="file" name="foto" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" accept="image/*">
+                                                    <input type="file" name="foto" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                                                     <small id="fileHelp" class="form-text text-muted"></small>
                                                 </div>
 
@@ -248,9 +247,9 @@
                                         
                                         <div class="row">
                                             <div class="col-md-12" id="boton">
-
-                                                <button id="botonRegFund" type="submit" class="btn btn-default">Registrar organización</button>
-
+                                                
+                                                <a href="view.php" id="botonRegresar" class="btn btn-info"> Volver </a>
+                                                <button id="botonRegFund" type="submit" class="btn btn-default" name="enviar" >Registrar organización</button>
 
                                             </div>
                                         </div>

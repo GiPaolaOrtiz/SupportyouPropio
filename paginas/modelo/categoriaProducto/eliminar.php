@@ -51,14 +51,14 @@ session_start();
             <?php
                 $id=$_GET['id'];
             
-               include_once('../../modelo/categoriaProducto/categoriaproductoCollector.php');
+               include_once("../../modelo/categoriaProducto/categoriaproductoCollector.php");
                 $CategoriaProductoCollectorObj = new categoriaproductoCollector();
                 foreach ($CategoriaProductoCollectorObj->showCategoriaProductos() as $c){
                      $nombre=$c->getNombre();
                  }
                 $CategoriaProductoCollectorObj-> deleteCategoriaProducto($id);
 
-                echo "<h3 class='topspace text-center'>La categoria</h3>";
+                echo "<h3 class='topspace text-center'>La categoria ha sido eliminado</h3>";
             ?>
             <div>
                 <a href="view.php" class="btn btn-info center-block w70">Volver</a>

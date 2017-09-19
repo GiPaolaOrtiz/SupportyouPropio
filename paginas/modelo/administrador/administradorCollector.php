@@ -1,9 +1,7 @@
 <?php
 
 include_once('administrador.php');
-
-include_once('../Collector.php');
-
+include_once("../../modelo/Collector.php");
 
 
 class administradorCollector extends Collector

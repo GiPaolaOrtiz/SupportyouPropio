@@ -1,7 +1,14 @@
 <?php
-	session_start();
-?>
+session_start();
 
+       if (!isset($_SESSION['user'])){
+            echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../index.php'>";
+        }else{
+            if(!$_SESSION['rol']==1){
+                echo "<meta HTTP-EQUIV='REFRESH' CONTENT='1;URL=../index.php'>";
+            }else{
+               
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,20 +53,14 @@
                   ?>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            
-
-            
-            
-            
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <br>
                 <ul class="nav navbar-nav navbar-right">
     
                      <li>
-                         
-                       
-                         
-                         
+                        <?php
+                        echo"<a class='page-scroll' href='logout.php'>SALIR</a>"
+                        ?>
                     </li>
                 </ul>
             </div>
@@ -131,7 +132,10 @@
                 </div>
                </div>
             </div>
-            
-
     </body>
 </html>
+<?php
+
+}
+        }
+?>

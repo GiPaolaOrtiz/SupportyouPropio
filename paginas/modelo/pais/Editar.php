@@ -26,7 +26,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 <body>
-   
 <!-- Menu -->
     <nav class="navbar navbar-default navbar-fixed-top topnav">
         <div class="container topnav">
@@ -73,6 +72,5 @@ Nombre: <input type="text" name="nombre" value="<?php echo $ObjPais->getNombre()
 
 
 </div>
-   
 </body>
 </html>

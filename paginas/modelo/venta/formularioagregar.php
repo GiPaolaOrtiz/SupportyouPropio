@@ -16,7 +16,7 @@ session_start();
         <link rel="stylesheet"  href="../../../css/estiloadmin.css">
     </head>
     <body>
-       <main>
+        <main>
             <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -58,12 +58,48 @@ session_start();
                             <div class="form-group">
                               <label for="total">Total</label>
                               <input type="text" class="form-control" id="total" placeholder="Escriba el total de la venta" name="total">
-                              <label for="cliente">ID Cliente</label>
-                              <input type="text" class="form-control" id="cliente" placeholder="Escriba el ID del cliente" name="cliente">
-                              <label for="metodo">ID Metodo Pago</label>
-                              <input type="text" class="form-control" id="metodo" placeholder="Escriba el ID del metodo de pago" name="metodo">
+                              <label for="cliente">Cliente</label>
+                              <select id="cliente" name="cliente" method="post" class="form-control" required>
+                                    <?php
+                                        include_once("../../modelo/cliente/clienteCollector.php");
+                                        include_once("../../modelo/usuario/usuarioCollector.php");
+                                        $clienteCollectorObj = new clienteCollector();
+                                        $usuarioCollectorObj = new usuarioCollector();
+                                        
+                                        foreach ($clienteCollectorObj->showClientes() as $d){
+                                            foreach ($usuarioCollectorObj->showUsuarios() as $c){
+                                                if($d->getIdusuario() == $c->getIdusuario()){
+                                                    echo "<option value= " . $d->getIdusuario() . ">" . $c->getNombre(). "</option>";       
+                                                }                                                
+                                            }                                            
+                                        }
+                                    ?>
+                                </select>
+                              <label for="metodo">Metodo Pago</label>
+                              <select id="metodo" name="metodo" method="post" class="form-control" required>
+                                    <?php
+                                        include_once("../../modelo/MetodoPago/MetodoPagoCollector.php");
+                                        $metodopagoCollectorObj = new metodopagoCollector();
+                                        
+                                        foreach ($metodopagoCollectorObj->showMetodoPagos() as $c){
+                                            echo "<option value= ".$c->getIdmetodopago(). ">". $c->getMetodo(). "</option>";
+                                            
+                                        }
+                                    ?>
+                                </select>
                               <label for="producto">ID Producto</label>
-                              <input type="text" class="form-control" id="producto" placeholder="Escriba el ID del produto" name="producto">
+                               <select id="producto" name="producto" method="post" class="form-control" required>
+                                    <?php
+                                        include_once("../../modelo/producto/ProductoCollector.php");
+                                        $productoCollectorObj = new ProductoCollector();
+                                        
+                                        foreach ($productoCollectorObj->showProductos() as $c){
+                                            if($c->getEstadoventa()!="vendido"){
+                                                echo "<option value= ".$c->getIdproducto(). ">". $c->getDescripcion(). "</option>";                                                
+                                            }                                            
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-info">Enviar</button>
                         </form>
@@ -79,7 +115,6 @@ session_start();
         <footer class="pie" id="footer1">
         <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved</p>
 
-    </footer>
-   
+    </footer>  
     </body>
 </html>

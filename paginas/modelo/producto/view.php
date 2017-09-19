@@ -40,9 +40,8 @@
                     </div>
                 </div>
             </nav>    <br><br><br>
-              <?php
-              include_once('../../modelo/producto/ProductoCollector.php');
-
+              <?php 
+            include_once("../../modelo/producto/ProductoCollector.php");
             $ProductoCollectorObj = new ProductoCollector();
                 echo '<h2 class="topspace text-center">Tabla Productos </h2>';
                 echo "<a href='FormularioNuevo.php' class='btn btn-warning center-block w10'><b>+</b></a>";
@@ -88,7 +87,7 @@
 
         <script src="../../../js/bootstrap.js"></script>
         <footer id="footer1">
-        <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved.</p>
+        <p class="copyright text-muted small">Copyright &copy; SupportYou 2017. All Rights Reserved..</p>
 
     </footer>  
     </body>
